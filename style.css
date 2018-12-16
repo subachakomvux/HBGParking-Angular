@@ -12,6 +12,13 @@
     font-size: 3.5vw!important;
     text-align: center;
 }
+.parking-home-header {
+    font-family: 'Faster One', cursive;
+    padding:2rem;
+     margin:0;
+     text-align: center;
+     font-size: 8rem;
+}
 .navbar-brand {     
     display: flex;
     justify-content: center;
@@ -22,11 +29,7 @@
     font-size: 4vw!important;
     text-align:center;
 }
- .app-tagline {
-     padding:2rem;
-     margin:0;
-}  
-
+ 
 .parking-body {    
     background-image:url('images/parking_car_banner.jpg');
     background-repeat: no-repeat;
