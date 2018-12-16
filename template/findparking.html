@@ -1,0 +1,22 @@
+<section class="parking-section">
+  <article class="container">
+    <h2>PARKING IN HELSINGBORG</h2>
+    <h5> To see map view,
+      <a class="btn parking-return-button" ng-click="showParkingMap()">click here</a></h5>
+
+    <div class="card parking-card" ng-repeat="parking in displayData">
+      <!-- <div ng-if="parking.fields.status=='AKTIV'">-->
+      <div class="card-header parking-card-header">
+        <h3>{{parking.fields.plats}}</h3>
+      </div>
+      <div class="card-body parking-card-body">
+        <h4 class="card-title">{{parking.fields.taxa}}kr/tim <i class="fas fa-hourglass-half"></i>
+          {{parking.fields.tid}}
+          <!-- </h4>-->
+          <!-- <h4 class="card-title">--><i class="fas fa-hourglass-half"></i></i> {{parking.fields.avgift}} </h4>
+      </div>
+      <!--  </div>-->
+      <h4><br></h4>
+    </div>
+  </article>
+</section>

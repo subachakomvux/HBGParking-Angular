@@ -1,0 +1,16 @@
+<section class="parking-section">
+    <article class="tagline-container">
+        <div class="tagline">
+            <form ng-submit="findlocalityparking(parkingPlace)">
+                <h2>Choose locality</h2>
+                <select ng-model="parkingPlace" required>
+                        <option></option> 
+                        <!-- required ( boolean attribute) means user HAS to choose one option. 
+                          The first option is empty otherwise required will not work-->
+                    <option ng-repeat="locality in displayLocality" value='{{locality.path}}'>{{locality.name}}</option>-->
+                </select>
+                <button class="btn parking-search-button" type="submit">Submit</button>
+            </form>
+        </div>
+    </article>
+</section>

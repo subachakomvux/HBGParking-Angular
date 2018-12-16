@@ -1,0 +1,262 @@
+* {
+    font-family: 'Quattrocento Sans', sans-serif;
+    margin:0;
+  }
+
+  /* style the app banner */
+  .main-header h1 {
+    font-family: 'Berkshire Swash', cursive;
+    color:black!important;
+    text-shadow: 3px 2px #ffd32a;
+   /* text-shadow: 2px 1px white;*/
+    font-size: 3.5vw!important;
+    text-align: center;
+}
+.navbar-brand {     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    /* Style the links inside the sidenav */
+.navbar-brand h1 {
+    font-size: 4vw!important;
+    text-align:center;
+}
+ .app-tagline {
+     padding:2rem;
+     margin:0;
+}  
+
+.parking-body {    
+    background-image:url('images/parking_car_banner.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+footer {
+    position:fixed;
+    bottom:0;
+    width:100%;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color:white;
+    font-size:2rem;
+}
+.parking-search-button {
+    background-color:#ffdd59;
+    font-size: 2rem;
+}
+.parking-search-button:hover {
+    background-color: #ff5e57;
+    font-style:oblique;
+}
+.parking-return-button {
+    background-color:#ffdd59;
+    padding:0.5rem;
+    font-size: 1.5 rem;
+    color:black;
+}
+.parking-return-button:hover {
+    background-color: #ff5e57;
+    font-style:oblique;
+}
+
+.parking-section {
+    padding:2rem;
+    margin:0;
+    background-color: rgb(0, 0, 0,0.4);
+}
+/* styling left nav module control bar */ 
+#mySidenav {
+    height: 100%; /* 100% Full-height */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    top: 0; /* Stay at the top */
+    left: 0;
+}
+/* Style the links inside the sidenav */
+#mySidenav a {
+    position: fixed; /* Position them relative to the browser window */
+    left: -11rem; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 0.7rem 1rem; /* 15px padding */
+    width:15rem;
+    text-decoration: none; /* Remove underline */
+    font-size: 2vw;/*2.5rem; /* Increase font size */
+    text-align: right;
+    color: white; /* White text color */
+    border-radius: 0 0.5rem 0.5rem 0; /* Rounded corners on the top right and bottom right side */
+}
+#mySidenav a:hover {
+    left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+/* All the module links displayed on left side of screen: starting with home from the top */
+#about {
+    top:20% !important ;
+    background-color: #ff5e57;/* Home Button */
+}
+#ActivityButton {   
+   top:70% !important ;
+   background-color: #4bcffa; /* Activities- Amanpreet */
+}
+#ToiletButton {
+    top:40% !important ;
+    background-color:#3c40c6;/* Toilets- Pratibha */
+}
+#TrailsButton {
+    top:50% !important ;
+    background-color: #0be881 /* Trails- Garima */
+}
+#FoodButton {
+    top: 60% !important ;
+    background-color: #f159f1 /* Food - Shweta */
+}
+#ParkingButton {
+    top: 30%!important  ;
+    background-color: #ffd32a; /* Parking - Subarna */
+}
+.parking-section h2, h3, h4,h5,h6,p {
+    text-align: center;
+    margin:0;
+    padding:0.5rem;
+}
+.parking-section h2 {
+    font-size:3rem;
+    color:#ffd32a;
+}
+.parking-section h3 {
+    font-size:2.5rem;
+    color:#ffd32a;
+}
+.parking-section h4 {
+    font-size:2rem;
+    color:black;
+    padding:0.5rem;
+}
+.parking-section h5 {
+    font-size:1.75rem;
+    background-color:black;
+    color:#ffd32a; 
+    padding:0.5rem;   
+}
+.parking-section h6 {
+    font-size:1.5rem;
+    color:black;
+    padding:0.5rem;
+}
+.parking-section p {
+    color:yellow;
+    text-align: center;
+    font-size:1.25rem;
+    background-color:black;
+    margin:0;
+    padding:1rem;
+}
+#choose-parking {
+    text-align: center;
+}
+/* styling layout of parking details in card in findparking.html*/
+
+.parking-card-header {
+    /*background-color:#ffdd59;*/
+    color:yellow;
+    background-color: #1e272e;
+    text-align:center;
+    padding: 1rem 0;
+    /*width:50rem;
+    border-top-right-radius :0.75rem;*/
+}
+.parking-card-body {
+    /*background-color:#ffdd59;*/
+    background-color: #ffd32a;
+    text-align:center;
+    padding: 1rem 0;
+}
+
+/* styling inner module (ex Parking) search page */
+.tagline-container {
+   /* background-image: url('images/parking_2.jpg');*/
+  /*  background-repeat: no-repeat;*/
+  /* background-size:cover;*/
+    height:65vh;
+    background-attachment: fixed;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.tagline {
+    padding:2rem 10rem;
+    border-radius: 2rem;  
+    background-color: rgba(0,0,0,0.8);
+    text-align: center;
+}
+/* styling mapbox map*/
+#parking-map {
+    position: absolute;    
+    /*width: 100%;*/
+    background-size: cover;
+    width:114rem;
+    height:60vh;
+    border: 10;
+}
+#geo-map {
+   /* position: absolute;
+    background-size: cover;
+    width:800px;
+    height:600px;
+    border: 10;*/
+    
+    height: 40em;
+    width: 100%;
+    display: block; 
+    
+    /*
+    top: 40%;
+    bottom: 0;    
+    width: 100%;
+    background-size: cover;*/
+}
+#marker {
+    background-image:url("images/IconParking.png");
+    background-size: cover;
+    width:4rem;
+    height:4rem;
+    padding: 0;
+}
+#user-marker {
+    background-image:url("images/IconMan.png");
+    background-size: cover;
+    width:5rem;
+    height:5rem;
+    padding: 0;
+}
+.mapboxgl-popup-content {
+ background-color:#ffd32a;
+ text-align:center;
+}
+
+@media screen and (min-width: 500px) {
+    .map-parking { width:100%;}
+}
+@media screen and (max-width:360px) {
+    #mySidenav a {
+        left: -15.2rem; /* On mouse-over, make the elements appear as they should */
+        position: fixed; /* Position them relative to the browser window */
+   top:-15px;
+    transition: 0.3s; /* Add transition on hover */
+    padding: 0.7rem 1rem; /* 15px padding */
+    width:19rem;
+    text-decoration: none; /* Remove underline */
+    font-size: 0px;/*2.5rem; /* Increase font size */
+    text-align: right;
+    color: white; /* White text color */
+    border-radius: 0 0.5rem 0.5rem 0; /* Rounded corners on the top right and bottom right side */
+    }
+    .fas{
+      font-size: 25px;  
+    }
+
+}

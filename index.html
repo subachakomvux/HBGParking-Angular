@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="GRASSPApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Helsingborg Parking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Faster+One|VT323" rel="stylesheet">
+    <!--Googlefont for header in home page app-->
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+    <!-- google font for all other text-->
+    <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans" rel="stylesheet">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="parking-body">
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-10 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <nav class="main-header navbar d-flex justify-content-center">
+                        <div class="nav-brand">
+                            <h1 class="app-tagline"> HemmaHbg - PARKING</h1>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- top banner ends-->
+    <main>
+        <div id="mySidenav">
+            <a href="#!/" id="about">Home <i class="fas fa-home"></i></a>
+            <a href="#" id="ParkingButton">Parking <i class="fas fa-parking"></i></a>
+            <a href="#" id="FoodButton">Food <i class="fas fa-utensils"></i></a>
+            <a href="#" id="ToiletButton">Toilets <i class="fas fa-male"></i><i class="fas fa-female"></i></a>
+            <a href="#" id="ActivityButton">Activity <i class="fas fa-futbol"></i></a>
+            <a href="#" id="TrailsButton">Trails<i class="fas fa-walking"></i></a>            
+        </div>
+        <!-- view will be displayed below-->
+        <div ng-view></div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.7.5/angular-route.min.js"></script>
+    <!-- for mapbox API-->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+    <script src="services.js"></script>
+</body>
+<footer>
+    <h5>&copy 2018 GRASSP || Powered by <img src="images/logoHBG_1.png" style="width:10rem"> </h5>
+
+</footer>
+
+</html>
