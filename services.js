@@ -3,7 +3,7 @@ var app = angular.module('GRASSPApp');
 app.factory('displayParking', ['$http', function ($http) {
     var newData = {
         getParkingData: function () {
-            var url = 'https://helsingborg.opendatasoft.com/api/records/1.0/search/?dataset=parkering_new&rows=100&facet=plats&facet=status&exclude.status=BORTPLOCKAD&exclude.status=AVST%C3%84NGD';
+            var url = 'https://helsingborg.opendatasoft.com/api/records/1.0/search/?dataset=parkering_new&rows=100&facet=namn&facet=status&exclude.status=bortpl&exclude.status=avstang';
             return $http.get(url)
                 .then(function (data) {
                     return (data);
@@ -16,7 +16,7 @@ app.factory('displayParking', ['$http', function ($http) {
 app.factory('displayLocality', ['$http', function ($http) {
     var newLocalityData = {
         getLocalityData: function () {
-            var url = 'https://helsingborg.opendatasoft.com/api/records/1.0/search/?dataset=parkering_new&rows=20&facet=plats&facet=status&exclude.status=AVST%C3%84NGD&exclude.status=BORTPLOCKAD';
+            var url = 'https://helsingborg.opendatasoft.com/api/records/1.0/search/?dataset=parkering_new&rows=20&facet=namn&facet=status&exclude.status=avstangd&exclude.status=bortpl';
             return $http.get(url)
                 .then(function (data) {
                     return (data);
@@ -28,7 +28,7 @@ app.factory('displayLocality', ['$http', function ($http) {
 app.factory('displayLocalityParking', ['$http', function ($http) {
     var newParkingData = {
         getLocalityParkingData: function (userLocality) {
-            var url = 'https://helsingborg.opendatasoft.com/api/records/1.0/search/?dataset=parkering_new&rows=20&facet=plats&facet=status&refine.plats=' + userLocality + '&exclude.status=AVST%C3%84NGD&exclude.status=BORTPLOCKAD';
+            var url = 'https://helsingborg.opendatasoft.com/api/records/1.0/search/?dataset=parkering_new&facet=namn&facet=status&refine.namn=' + userLocality + '&exclude.status=avstang&exclude.status=bortpl';
             return $http.get(url)
                 .then(function (data) {
                     return (data);

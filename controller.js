@@ -61,7 +61,7 @@ app.controller('ParkingGeoMapCtrl', ['$scope', '$location', 'displayGeoParking',
                     var elCar = document.createElement('div');
                     elCar.id = 'marker';
                     // create the popup for marker
-                    var popupCar = new mapboxgl.Popup({ offset: 20 }).setHTML('<h4 style="color:blue">' + item.fields.plats + '</h4><h6>' + "Avgift : " + item.fields.taxa + 'kr/tim</h6><h6>' + "Tid : " + item.fields.tid + '</h6><p>' + "Kl. " + item.fields.avgift + '</p>');
+                    var popupCar = new mapboxgl.Popup({ offset: 20 }).setHTML('<h4 style="color:blue">' + item.fields.namn + '</h4><h6>' + "Avgift : " + item.fields.taxa_avgbeltid + 'kr/tim</h6><h6>' + "Tid : " + item.fields.avgiftbeltid_vardag + '</h6><p>' + "Antal plats " + item.fields.antal_plats + '</p>');
                     // store latitude and longitude of each parking place in array plats
                     var plats = [];
                     plats.push(item.geometry.coordinates[0], item.geometry.coordinates[1]);
@@ -87,10 +87,10 @@ app.controller('ParkingGeoMapCtrl', ['$scope', '$location', 'displayGeoParking',
                         distance.push(0);
                         nearParkingArray.push(
                             {
-                                name: item.fields.plats,
-                                avgift: item.fields.taxa,
-                                tid: item.fields.tid,
-                                klock: item.fields.avgift,
+                                name: item.fields.namn,
+                                avgift: item.fields.taxa_avgbeltid,
+                                tid: item.fields.avgbeltid_vardag,
+                                antal: item.fields.antal_plats,
                                 lon: item.geometry.coordinates[0],
                                 lat: item.geometry.coordinates[1],
                                 dis: 0
@@ -120,10 +120,10 @@ app.controller('ParkingGeoMapCtrl', ['$scope', '$location', 'displayGeoParking',
                         /* store corresponding values of each parking spot with distance in nearParkingArray */
                         nearParkingArray.push(
                             {
-                                name: item.fields.plats,
-                                avgift: item.fields.taxa,
-                                tid: item.fields.tid,
-                                klock: item.fields.avgift,
+                                name: item.fields.namn,
+                                avgift: item.fields.taxa_avgbeltid,
+                                tid: item.fields.avgbeltid_vardag,
+                                antal: item.fields.antal_plats,
                                 lon: item.geometry.coordinates[0],
                                 lat: item.geometry.coordinates[1],
                                 dis: dist
@@ -143,7 +143,7 @@ app.controller('ParkingGeoMapCtrl', ['$scope', '$location', 'displayGeoParking',
                     var elCar = document.createElement('div');
                     elCar.id = 'marker';
                     /* create the popup for marker*/
-                    var popupCar = new mapboxgl.Popup({ offset: 20 }).setHTML('<h4 style="color:blue">' + nearParkingArray[i].name + '</h4><h6>' + "Avgift : " + nearParkingArray[i].avgift + ' kr/tim' + '</h6><h6>' + "Tid : " + nearParkingArray[i].tid + '</h6><h6>' + "Kl. " + nearParkingArray[i].klock + '</h6><p>' + "Dis. " + (nearParkingArray[i].dis).toFixed(2) + " km" + '</p>');
+                    var popupCar = new mapboxgl.Popup({ offset: 20 }).setHTML('<h4 style="color:blue">' + nearParkingArray[i].name + '</h4><h6>' + "Avgift : " + nearParkingArray[i].avgift + ' kr/tim' + '</h6><h6>' + "Tid : " + nearParkingArray[i].tid + '</h6><h6>' + "Antal plats : " + nearParkingArray[i].antal + '</h6><p>' + "Dis. " + (nearParkingArray[i].dis).toFixed(2) + " km" + '</p>');
                     /* store latitude and longitude of each parking place in array plats*/
                     var plats = [nearParkingArray[i].lon, nearParkingArray[i].lat];
                     /* create the user position marker */
@@ -173,7 +173,6 @@ app.controller('ParkingSearchCtrl', ['$scope', '$location', 'displayParking', fu
     displayParking.getParkingData()
         .then(function (output) {
             $scope.displayData = output.data.records;
-
         });
     $scope.showParkingMap = function () {
         $location.path('/show-parking-All');
@@ -195,17 +194,18 @@ app.controller('ParkingLocalityCtrl', ['$scope', '$location', '$routeParams', 'd
                 /* the name ,latitude and longitude and other details of each parking spot is pushed in array */
                 destinationArray.push(
                     {
-                        name: output.data.records[i].fields.plats,
-                        avgift: output.data.records[i].fields.taxa,
-                        tid: output.data.records[i].fields.tid,
-                        klock: output.data.records[i].fields.avgift,
+                        /* HBG opendata API modified in April 2019 */
+                        name: output.data.records[i].fields.namn,
+                        avgift: output.data.records[i].fields.taxa_avgbeltid,
+                        tid: output.data.records[i].fields.avgbeltid_vardag,
+                        antal: output.data.records[i].fields.antal_plats,
                         lon: output.data.records[i].geometry.coordinates[0],
                         lat: output.data.records[i].geometry.coordinates[1]
                     }
                 );
             }
             /* store name of parking spot in a variable and convert it into uppercase letters*/
-            var lowerCaseParkingSpot = output.data.records[0].fields.plats;
+            var lowerCaseParkingSpot = output.data.records[0].fields.namn;
             $scope.upperCaseParkingSpot = lowerCaseParkingSpot.toUpperCase();
 
             /* Include code for map */
@@ -227,7 +227,7 @@ app.controller('ParkingLocalityCtrl', ['$scope', '$location', '$routeParams', 'd
                 var el = document.createElement('div');
                 el.id = 'marker';
                 // create the popup
-                var popup = new mapboxgl.Popup({ offset: 20 }).setHTML('<h4 style="color:blue">' + item.name + '</h4><h6>' + "Avgift : " + item.avgift + 'kr/tim</h6><h6>' + "Tid : " + item.tid + '</h6><p>' + "Kl. " + item.klock + '</p>');
+                var popup = new mapboxgl.Popup({ offset: 20 }).setHTML('<h4 style="color:blue">' + item.name + '</h4><h6>' + "Avgift : " + item.avgift + 'kr/tim</h6><h6>' + "Tid : " + item.tid + '</h6><p>' + "Antal plats : " + item.antal + '</p>');
 
                 // create the marker
                 new mapboxgl.Marker(el)
